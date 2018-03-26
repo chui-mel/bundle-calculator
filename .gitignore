@@ -1,0 +1,7 @@
+*.gem
+/coverage/
+
+## Environment normalisation:
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/

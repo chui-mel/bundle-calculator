@@ -1,0 +1,9 @@
+# Adapted from https://git.realestate.com.au/the-money/mercury/blob/master/.rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.4.1
+
+LineLength:
+  Max: 120
+  Exclude:
+    - 'spec/**/*'
