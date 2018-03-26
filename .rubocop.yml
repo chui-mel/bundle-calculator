@@ -8,3 +8,7 @@ LineLength:
 
 Documentation:
     Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
