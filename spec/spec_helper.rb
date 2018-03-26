@@ -2,6 +2,12 @@
 
 ENV['RACK_ENV'] = 'test'
 
+require 'simplecov'
+SimpleCov.start do
+  add_filter 'spec/'
+  minimum_coverage 100
+end
+
 require 'rubygems'
 require 'bundler'
 $LOAD_PATH.unshift File.expand_path('../app', File.dirname(__FILE__))
