@@ -4,6 +4,7 @@ AllCops:
   TargetRubyVersion: 2.4.1
 
 LineLength:
-  Max: 120
-  Exclude:
-    - 'spec/**/*'
+  Max: 140
+
+Documentation:
+    Enabled: false

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'Submission Bundle' do
   context 'when intialising a submission bundle' do
-    let (:bundle) { SubmissionBundle.new(3, 294) }
+    let(:bundle) { SubmissionBundle.new(3, 294) }
 
     it 'shows correct information' do
       expect(bundle.to_s).to eq '3 $294'

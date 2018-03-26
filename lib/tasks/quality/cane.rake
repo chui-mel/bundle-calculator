@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :quality do
   begin
     require 'cane'
@@ -10,7 +12,7 @@ namespace :quality do
       cane.abc_max       = 25
       cane.no_doc        = true
       cane.style_glob    = './{app,lib}/**/*.rb'
-      cane.style_measure = 120
+      cane.style_measure = 140
 
       cane.abc_exclude   = []
     end

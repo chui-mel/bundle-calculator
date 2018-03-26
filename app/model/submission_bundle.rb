@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SubmissionBundle
   attr_reader :quantity, :amount
 
@@ -19,7 +21,7 @@ class SubmissionBundle
   private
 
   def validate_params(quantity, amount)
-    raise ArgumentError, 'quantity should be a positive Integer.' unless (quantity.is_a? Integer) && quantity > 0
-    raise ArgumentError, 'amount should be a positive Numeric.' unless (amount.is_a? Numeric) && amount > 0
+    raise ArgumentError, 'quantity should be a positive Integer.' unless (quantity.is_a? Integer) && quantity.positive?
+    raise ArgumentError, 'amount should be a positive Numeric.' unless (amount.is_a? Numeric) && amount.positive?
   end
 end

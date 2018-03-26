@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :quality do
   begin
     require 'rubocop/rake_task'
