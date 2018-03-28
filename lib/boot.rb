@@ -10,9 +10,12 @@ Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 $LOAD_PATH.unshift File.expand_path('.', File.dirname(__FILE__))
 $LOAD_PATH.unshift File.expand_path('../app', File.dirname(__FILE__))
 
-require 'constants'
+require 'model/constants'
 require 'model/submission_bundle'
 require 'model/order_item'
 require 'model/order'
 require 'model/media_bundles'
+require 'model/filled_order_item'
 require 'algorithm/minimum_bundles'
+require 'order_parser'
+require 'order_filler'

@@ -17,7 +17,7 @@ describe 'Order' do
     end
 
     it 'shows correct information' do
-      expect(order.items.keys).to match_array(['3 IMG', '10 Flac', '10 VID'])
+      expect(order.items.keys).to match_array(['3 IMG', '10 FLAC', '10 VID'])
     end
 
     it 'shows correct information when deleting one order itme' do

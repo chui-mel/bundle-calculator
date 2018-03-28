@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'constants'
+require 'model/constants'
 
 class OrderItem
   attr_reader :quantity, :format_code
@@ -9,7 +9,7 @@ class OrderItem
     validate_params(quantity, format_code)
 
     @quantity = quantity
-    @format_code = format_code
+    @format_code = format_code.upcase
   end
 
   def to_s
@@ -20,6 +20,6 @@ class OrderItem
 
   def validate_params(quantity, format_code)
     raise ArgumentError, 'quantity should be a positive Integer.' unless (quantity.is_a? Integer) && quantity.positive?
-    raise ArgumentError, 'format code should be in valid list.' unless Constants::MEDIA_FORMAT.values.include?(format_code)
+    raise ArgumentError, 'format code should be in valid list.' unless Constants::MEDIA_FORMAT.values.include?(format_code.upcase)
   end
 end
