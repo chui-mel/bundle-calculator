@@ -14,7 +14,6 @@ $LOAD_PATH.unshift File.expand_path('../app', File.dirname(__FILE__))
 
 require 'rspec/its'
 require 'boot'
-Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

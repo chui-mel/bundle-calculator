@@ -1,23 +1,27 @@
-# frozen_string_literal: true
-
 class FilledOrderItem
-  def initialize(format_code, filled_quantity, bundle_quantity, bundle_amount)
-    @format_code = format_code
-    @filled_quantity = filled_quantity
-    @amount = bundle_amount * filled_quantity
-    @bundle_quantity = bundle_quantity
-    @bundle_amount = bundle_amount
+  def initialize(item_quantity, item_format)
+    @item_quantity = item_quantity
+    @item_format = item_format
+    @filled_bundles = []
   end
 
-  def to_json
-    {
-      format_code: @format_code,
-      quantity: @filled_quantity,
-      amount: "$#{@amount}",
-      bundle: {
-        quantity: @bundle_quantity,
-        amount: "$#{@bundle_amount}"
-      }
-    }
+  def add_filled_bundle(filled_bundle)
+    @filled_bundles << filled_bundle
+  end
+
+  def to_s
+    item_str = "#{@item_quantity} #{@item_format} $#{total_amount}\n"
+    @filled_bundles.each do |bundle|
+      item_str << "  #{bundle}\n"
+    end
+    item_str
+  end
+
+  def total_amount
+    total = 0
+    @filled_bundles.each do |bundle|
+      total += bundle.amount
+    end
+    total
   end
 end

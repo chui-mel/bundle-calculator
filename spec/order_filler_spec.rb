@@ -35,12 +35,7 @@ describe 'Order filler' do
     end
 
     it 'fills order with correct bundles' do
-      # {"IMG":{"10":{"format_code":"IMG","quantity":1,"amount":"$800","bundle":{"quantity":10,"amount":"$800"}}},
-      #  "FLAC":{"9":{"format_code":"FLAC","quantity":1,"amount":"$1147.5","bundle":{"quantity":9,"amount":"$1147.5"}},
-      #          "6":{"format_code":"FLAC","quantity":1,"amount":"$810","bundle":{"quantity":6,"amount":"$810"}}},
-      #  "VID":{"9":{"format_code":"VID","quantity":1,"amount":"$1530","bundle":{"quantity":9,"amount":"$1530"}},
-      #         "5":{"format_code":"VID","quantity":1,"amount":"$900","bundle":{"quantity":5,"amount":"$900"}}}}
-      expect(order_filler.fill_order(order)['FLAC'][6][:amount]).to eq '$810'
+      expect(order_filler.fill_order(order).to_s).to include('15 FLAC $1957.5')
     end
   end
 end
