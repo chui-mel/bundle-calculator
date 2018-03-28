@@ -12,6 +12,16 @@ describe 'Minimum number bundles algorithm' do
     end
   end
 
+  context 'when with 2 bundles' do
+    context 'if cannot get exactly equality' do
+      let(:numbers_2) { [11, 23] }
+
+      it 'for number 42, it should choose 1 bundles' do
+        expect(greedy.fill_number(42, numbers_2)).to match_array([11, 11, 11, 11])
+      end
+    end
+  end
+
   context 'when with 3 bundles' do
     context 'if can get exactly equality' do
       let(:numbers_3) { [1, 5, 2] }

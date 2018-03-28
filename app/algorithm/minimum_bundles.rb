@@ -22,13 +22,17 @@ module Algorithm
     private
 
     def choose_bundles(total_number, bundles)
+      offsets = []
+
       array_index = 0
       while array_index < bundles.size
         offset = offset_of(total_number, bundles[array_index..-1])
         return bundles[array_index..-1] if offset.zero?
+        offsets << offset
         array_index += 1
       end
-      bundles
+
+      bundles[offsets.index(offsets.min)..-1]
     end
 
     def offset_of(total_number, bundles)
