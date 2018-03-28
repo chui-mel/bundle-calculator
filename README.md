@@ -36,3 +36,12 @@ A successfully passing test(s) that demonstrates the following output: (The form
   2 x 5 $1800
   1 x 3 $570
 ```
+
+## How to run
+Ruby 2.4.1 is required.
+Before running, run `bundle install`.
+
+1. `rake quality` to do static check for code.
+2. `rake spec` to run all unittest.
+3. create a order file and you can refer to test_order.
+4. run `ruby app/bundle_calculator.rb test_order` to see the result.
