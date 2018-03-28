@@ -4,11 +4,12 @@ module Algorithm
   class MininumBundles
     def fill_number(total_number, bundles)
       sorted_bundles = bundles.sort { |a, b| b <=> a }
+      chosen_bundles = choose_bundles(total_number, sorted_bundles)
 
-      not_filled_number = total_number + offset_of(total_number, sorted_bundles)
+      not_filled_number = total_number + offset_of(total_number, chosen_bundles)
       filled = []
 
-      sorted_bundles.each do |s|
+      chosen_bundles.each do |s|
         count = not_filled_number / s
         not_filled_number = not_filled_number % s
 
@@ -19,6 +20,16 @@ module Algorithm
     end
 
     private
+
+    def choose_bundles(total_number, bundles)
+      array_index = 0
+      while array_index < bundles.size
+        offset = offset_of(total_number, bundles[array_index..-1])
+        return bundles[array_index..-1] if offset.zero?
+        array_index += 1
+      end
+      bundles
+    end
 
     def offset_of(total_number, bundles)
       offset = total_number

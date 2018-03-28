@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 class FilledOrder
   def initialize
     @filled_items = []

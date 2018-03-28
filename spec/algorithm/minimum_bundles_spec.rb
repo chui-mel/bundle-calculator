@@ -21,6 +21,14 @@ describe 'Minimum number bundles algorithm' do
       end
     end
 
+    context 'if can get exactly equality without bigest one' do
+      let(:numbers_3) { [3, 5, 9] }
+
+      it 'for number 13, it should choose 2 bundles' do
+        expect(greedy.fill_number(13, numbers_3)).to match_array([5, 5, 3])
+      end
+    end
+
     context 'if cannot get exactly equality' do
       let(:numbers_3) { [3, 6, 9] }
 
@@ -43,8 +51,8 @@ describe 'Minimum number bundles algorithm' do
       let(:numbers_5) { [3, 6, 9, 12, 37] }
 
       it 'it should choose different bundles' do
-        expect(greedy.fill_number(102, numbers_5)).to match_array([37, 37, 12, 12, 6])
-        expect(greedy.fill_number(105, numbers_5)).to match_array([37, 37, 12, 12, 9])
+        expect(greedy.fill_number(102, numbers_5)).to match_array([6, 12, 12, 12, 12, 12, 12, 12, 12])
+        expect(greedy.fill_number(105, numbers_5)).to match_array([9, 12, 12, 12, 12, 12, 12, 12, 12])
         expect(greedy.fill_number(106, numbers_5)).to match_array([37, 37, 12, 12, 9])
       end
     end

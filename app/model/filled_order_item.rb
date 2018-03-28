@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 class FilledOrderItem
   def initialize(item_quantity, item_format)
     @item_quantity = item_quantity
@@ -18,10 +20,6 @@ class FilledOrderItem
   end
 
   def total_amount
-    total = 0
-    @filled_bundles.each do |bundle|
-      total += bundle.amount
-    end
-    total
+    @filled_bundles.map(&:amount).reduce(:+)
   end
 end

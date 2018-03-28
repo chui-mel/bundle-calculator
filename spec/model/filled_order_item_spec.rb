@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'Filled Order Item' do
   context 'when creating a filled order item' do
-    let(:filled_order_item) { FilledOrderItem.new(15, 'FLAC')}
+    let(:filled_order_item) { FilledOrderItem.new(15, 'FLAC') }
 
     before do
       filled_order_item.add_filled_bundle(FilledBundle.new(1, 9, 1147.5))
